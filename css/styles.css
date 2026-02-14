@@ -1,0 +1,299 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+height:100vh;
+font-family:'Segoe UI',sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#1e3c72,#2a5298,#ff758c,#ff7eb3);
+background-size:400% 400%;
+animation:fondo 15s ease infinite;
+overflow:hidden;
+color:white;
+perspective:1000px;
+}
+
+/* LOGIN */
+#login {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    animation: aparecer 1s ease;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+#login h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #ffdde1;
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+
+.input-container{
+position:relative;
+width:80%;
+margin:0 auto 15px;
+}
+
+#password{
+width:100%;
+padding:12px 40px 12px 15px;
+border-radius:10px;
+border:none;
+font-size:18px;
+text-align:center;
+}
+
+#toggleOjo{
+position:absolute;
+right:10px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+font-size:20px;
+user-select:none;
+}
+
+#login button {
+    background: linear-gradient(45deg, #ff4b5c, #ff758c);
+    border: none;
+    border-radius: 12px;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-family: 'Dancing Script', cursive;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+#login button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255,75,92,0.6);
+}
+
+#error {
+    color: #ffccd5;
+    margin-top: 10px;
+    font-size: 16px;
+    min-height: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+@keyframes fondo{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* ESTRELLAS */
+.estrellas::after{
+content:"";
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+box-shadow:
+20vw 10vh white,
+40vw 20vh white,
+60vw 80vh white,
+80vw 30vh white,
+10vw 70vh white,
+70vw 50vh white,
+30vw 60vh white,
+90vw 90vh white;
+animation:parpadeo 2s infinite alternate;
+}
+
+@keyframes parpadeo{
+from{opacity:0.3;}
+to{opacity:1;}
+}
+
+/* SOBRE */
+#sobreContainer{
+position:absolute;
+text-align:center;
+}
+
+.sobre{
+width:220px;
+height:150px;
+position:relative;
+cursor:pointer;
+animation:flotar 3s ease-in-out infinite;
+transform-style:preserve-3d;
+perspective:500px;
+}
+
+@keyframes flotar{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+
+.cuerpo{
+width:100%;
+height:100%;
+background:white;
+border-radius:8px;
+}
+
+.tapa{
+position:absolute;
+width:100%;
+height:100%;
+background: linear-gradient(145deg, #ff4b5c, #ff758c);
+clip-path: polygon(0 0,50% 60%,100% 0);
+transform-origin:top;
+transition: transform 1.2s ease-in-out;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.sobre.abierto .tapa{
+transform:rotateX(180deg);
+}
+
+.corazon-sello{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:30px;
+}
+
+.abrir-indicacion{
+margin-top:20px;
+animation:latido 1.5s infinite;
+}
+
+@keyframes latido{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.1);}
+}
+
+/* CARTA estilo hoja */
+#carta.card {
+    background: #fff8f0;
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.05),
+                0 10px 25px rgba(0,0,0,0.2);
+    text-align: left;
+    font-family: 'Dancing Script', cursive;
+    color: #4a2c2a;
+    line-height: 1.6;
+    position: relative;
+    animation: aparecer 1s ease;
+}
+
+#carta h1, #carta h2 {
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    color: #b22222;
+    margin-bottom: 20px;
+}
+
+#texto.mensaje {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: #4a2c2a;
+    min-height: 120px;
+}
+
+#carta button {
+    background: linear-gradient(45deg,#ff4b5c,#ff758c);
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 18px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s;
+}
+
+#carta button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255,75,92,0.4);
+}
+
+/* CORAZONES 3D */
+.corazon{
+position:absolute;
+bottom:-50px;
+transform-style:preserve-3d;
+animation:subir3d linear forwards;
+pointer-events: none;
+}
+
+.corazon .shape{
+position:relative;
+width:100%;
+height:100%;
+background:var(--color);
+transform:rotate(-45deg);
+box-shadow:0 0 20px var(--color);
+}
+
+.corazon .shape::before,
+.corazon .shape::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:var(--color);
+border-radius:50%;
+}
+
+.corazon .shape::before{
+top:-50%;
+left:0;
+}
+
+.corazon .shape::after{
+left:50%;
+top:0;
+}
+
+@keyframes subir3d{
+0%{transform:translateY(0) rotateY(0deg) scale(1);opacity:1;}
+100%{transform:translateY(-110vh) rotateY(720deg) scale(1.6);opacity:0;}
+}
+
+/* SORPRESA y BOTONES */
+.sorpresa{margin-top:30px;animation:aparecer 1s ease;}
+.botones{display:flex;justify-content:center;gap:20px;margin-top:20px;}
+#btnNo{position:relative;transition:0.3s;}
+#razonTexto{font-size:20px;margin-top:20px;animation:latido 1s infinite;}
+
+/* CORAZÓN FINAL */
+#finalCorazon{display:flex;flex-direction:column;justify-content:center;align-items:center;margin-top:30px;}
+#corazonFormado{position:relative;width:200px;height:200px;}
+#corazonFormado .miniCorazon{
+position:absolute;
+width:15px;height:15px;background:red;transform:rotate(-45deg);
+border-radius:5px;animation:aparecerCorazon 0.8s ease forwards;
+}
+#corazonFormado .miniCorazon::before,
+#corazonFormado .miniCorazon::after{content:"";position:absolute;width:15px;height:15px;background:red;border-radius:50%;}
+#corazonFormado .miniCorazon::before{top:-50%;left:0;}
+#corazonFormado .miniCorazon::after{left:50%;top:0;}
+#teAmoTexto{font-size:32px;margin-top:20px;opacity:0;transition:opacity 1s ease, transform 0.5s ease;}
+.latido{animation:latir 1s infinite;}
+@keyframes aparecerCorazon{0%{opacity:0;transform:scale(0);}100%{opacity:1;transform:scale(1);}}
+@keyframes latir{0%,100%{transform:scale(1);}50%{transform:scale(1.15);}}
+@keyframes aparecer{from{opacity:0;transform:translateY(20px) scale(0.9);}to{opacity:1;transform:translateY(0) scale(1);}}
+.hidden{display:none;}
+@media(max-width:480px){.card{padding:30px 20px;}}
